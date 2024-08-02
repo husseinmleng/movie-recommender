@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  backend:
+    build: 
+      context: ./components/backend 
+      dockerfile: Dockerfile 
+    user: nonroot
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_MODEL_NAME: ${OPENAI_MODEL_NAME}
+      RETRIEVER_EMBEDDING_MODEL: ${RETRIEVER_EMBEDDING_MODEL}
+      OPENAI_TIMEOUT: ${OPENAI_TIMEOUT}
+      OPENAI_TEMPERATURE: ${OPENAI_TEMPERATURE}
+      RETRIEVER_EMBEDDING_THRESHOLD: ${RETRIEVER_EMBEDDING_THRESHOLD}
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: 
+      context: ./components/frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+    user: nonroot
+    environment:
+      BACKEND_URL: http://backend:8080
+    ports:
+      - "8081:8081"

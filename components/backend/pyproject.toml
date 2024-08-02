@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "Movie-Recommendation-System-backend"
+version = "0.1.0"
+description = ""
+authors = ["ahmed mursi <ahmed.mursi@musala.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "1.0.1"
+langchain = "0.2.2"
+langchain-openai = "^0.1.8"
+langchain-community = "^0.2.3"
+fastapi = "^0.111.0"
+uvicorn = "^0.30.1"
+gunicorn = "^22.0.0"
+pandas = "^2.2.2"
+faiss-cpu = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

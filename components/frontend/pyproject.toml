@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "Movie-Recommendation-System-frontend"
+version = "0.1.0"
+description = ""
+authors = ["ahmed mursi <ahmed.mursi@musala.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.35.0"
+python-dotenv = "1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
